@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mide_mate/core/theming/colors_manager.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.child, required this.onTap});
+class CustomTextButton extends StatelessWidget {
+  const CustomTextButton({super.key, required this.child, required this.onTap});
   final void Function()? onTap;
   final Widget child;
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mide_mate/core/shared_widgets/text_button.dart';
+import 'package:mide_mate/core/shared_widgets/custom_text_button.dart';
 import 'package:mide_mate/core/theming/stylels_text.dart';
 
 class RowOfForgotPassword extends StatefulWidget {
