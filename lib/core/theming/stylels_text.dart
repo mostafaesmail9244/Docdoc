@@ -9,6 +9,8 @@ class TextStyles {
       color: ColorManager.mainBlue,
       fontSize: 32.sp,
       fontWeight: FontWeight.w700);
-  static TextStyle font16Grey400 = TextStyle(
-      color: ColorManager.gray, fontSize: 16.sp, fontWeight: FontWeight.w700);
+  static TextStyle font16Grey = TextStyle(
+    color: ColorManager.grey,
+    fontSize: 16.sp,
+  );
 }

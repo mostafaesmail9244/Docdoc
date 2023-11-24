@@ -27,7 +27,7 @@ class OnBoardingScreen extends StatelessWidget {
                   Text(
                     'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
                     textAlign: TextAlign.center,
-                    style: TextStyles.font16Grey400.copyWith(),
+                    style: TextStyles.font16Grey.copyWith(),
                   ),
                   SizedBox(height: 30.h),
                   const GetStartedButton()
@@ -52,8 +52,10 @@ class GetStartedButton extends StatelessWidget {
       style: ButtonStyle(
           shape: MaterialStatePropertyAll(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(16))),
-          minimumSize: const MaterialStatePropertyAll(Size(double.infinity, 55)),
-          backgroundColor: const MaterialStatePropertyAll(ColorManager.mainBlue)),
+          minimumSize:
+              const MaterialStatePropertyAll(Size(double.infinity, 55)),
+          backgroundColor:
+              const MaterialStatePropertyAll(ColorManager.mainBlue)),
       onPressed: () {},
       child: Text(
         'Get Started',
