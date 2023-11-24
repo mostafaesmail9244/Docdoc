@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mide_mate/core/routing/routes.dart';
-import 'package:mide_mate/features/home/ui/screens/login_screen.dart';
+import 'package:mide_mate/features/auth/ui/screens/login_screen.dart';
 import 'package:mide_mate/features/on_boarding/on_boarding_screen.dart';
 
 class AppRouter {
-
   // final arguments = RouteSetti,
   Route generatRoute(RouteSettings settings) {
     switch (settings.name) {
