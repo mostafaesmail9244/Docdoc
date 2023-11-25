@@ -103,7 +103,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 35.w,
                           )),
                     ],
-                  )
+                  ),
+                  const TermsAndConditionsButton()
                 ],
               ),
             ),
@@ -127,3 +128,42 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       );
 }
+
+class TermsAndConditionsButton extends StatelessWidget {
+  const TermsAndConditionsButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text(
+              'By logging, you agree to our Terms & Conditions and Privacy Policy',
+              style: TextStyles.font16Grey.copyWith(fontSize: 12),
+            ),
+            // Text(
+            //   'By logging, you agree to our',
+            //   style: TextStyles.font16Grey.copyWith(fontSize: 12),
+            // ),
+            // TextButton(
+            //   onPressed: () {},
+            //   child: const Text('Terms & Concv ditions'),
+            // ),
+            // Text('and', style: TextStyles.font16Grey),
+            // TextButton(onPressed: () {}, child: const Text('Privacy Policy')),
+          ],
+        ),
+        Text('Already have an account yet? Sign Up? '),
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              'Sing Up',
+              style: TextStyles.font16Grey.copyWith(color: Colors.blue),
+            ))
+      ],
+    );
+  }
+}
+
+
