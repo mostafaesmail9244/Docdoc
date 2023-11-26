@@ -1,24 +1,39 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mide_mate/core/helper/extentions.dart';
-import 'package:mide_mate/core/routing/routes.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_form_field.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_button.dart';
 import 'package:mide_mate/core/theming/stylels_text.dart';
-import 'package:mide_mate/features/auth/ui/widgets/check_box.dart';
 import 'package:mide_mate/features/auth/ui/widgets/my_divider.dart';
+import 'package:mide_mate/features/auth/ui/widgets/phone_field.dart';
 import 'package:mide_mate/features/auth/ui/widgets/singin_by_apps.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({
+    super.key,
+  });
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
+  List<String> flagsList = [
+    '🇺🇸 United States',
+    '🇨🇦 Canada',
+    '🇬🇧 United Kingdom',
+    '🇫🇷 France',
+    '🇩🇪 Germany',
+    '🇮🇹 Italy',
+    '🇯🇵 Japan',
+    '🇨🇳 China',
+    '🇮🇳 India',
+    '🇧🇷 Brazil',
+  ];
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -34,57 +49,74 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   SizedBox(height: 30.h),
                   Text(
-                    'Welcome Back',
+                    'Create Account',
                     style:
                         TextStyles.font24Black700.copyWith(color: Colors.blue),
                   ),
                   Text(
-                    'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last logged in.',
+                    'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                     style: TextStyles.font16Grey,
                   ),
                   SizedBox(height: 30.h),
                   customTextFormField(
                       controller: emailController,
-                      type: TextInputType.emailAddress,
+                      tap: () {},
                       validate: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
+                      type: TextInputType.emailAddress,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16)),
                       label: 'Email'),
                   SizedBox(height: 20.h),
-                  //
+
                   customTextFormField(
-                      controller: passController,
-                      type: TextInputType.emailAddress,
                       validate: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
+                      controller: passController,
+                      tap: () {},
+                      type: TextInputType.emailAddress,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16)),
                       label: 'Password'),
-                  const RowOfForgotPassword(),
+                  SizedBox(height: 20.h),
+
+                  //TODO: add phone number
+
+                 PhoneNumberCountryCode(),
+                  // customTextFormField(
+                  //     validate: (value) {
+                  //       if (value.isEmpty) {
+                  //         return 'this field is required';
+                  //       }
+                  //       return null;
+                  //     },
+                  //     controller: phoneController,
+                  //     tap: () {},
+                  //     type: TextInputType.emailAddress,
+                  //     border: OutlineInputBorder(
+                  //         borderRadius: BorderRadius.circular(16)),
+                  //     label: 'Your number'),
                   SizedBox(height: 20.h),
                   CustomTextButton(
                       child: Text(
-                        'Login',
+                        'Create Account',
                         style: TextStyles.font24Black700
                             .copyWith(color: Colors.white, fontSize: 17.sp),
                       ),
                       onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          debugPrint('prrrrrrrrrress');
-                        }
+                        if (_formKey.currentState!.validate()) {}
                       }),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   const SignDivider(),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   const SignInByApps(),
                   const TermsAndConditionsButton()
@@ -136,15 +168,15 @@ class TermsAndConditionsButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Already have an account ?',
+              'Already have an account?',
               style: TextStyles.font16Grey.copyWith(color: Colors.black),
             ),
             TextButton(
               onPressed: () {
-                context.pushNamed(Routes.registerScreen);
+                context.pop();
               },
               child: Text(
-                'Sing up',
+                'Sing in',
                 style: TextStyles.font16Grey.copyWith(color: Colors.blue),
               ),
             )
@@ -154,3 +186,41 @@ class TermsAndConditionsButton extends StatelessWidget {
     );
   }
 }
+
+// class FlagDropdown extends StatefulWidget {
+//   @override
+//   _FlagDropdownState createState() => _FlagDropdownState();
+// }
+
+// class _FlagDropdownState extends State<FlagDropdown> {
+//   String selectedFlag = "";
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return DropdownSearch<String>(
+//       // ode: Mode.MENU,
+//       // showSelectedItem: true,
+//       items: [
+//         '🇺🇸 United States',
+//         '🇨🇦 Canada',
+//         '🇬🇧 United Kingdom',
+//         '🇫🇷 France',
+//         '🇩🇪 Germany',
+//         '🇮🇹 Italy',
+//         '🇯🇵 Japan',
+//         '🇨🇳 China',
+//         '🇮🇳 India',
+//         '🇧🇷 Brazil',
+//         // Add more flags as needed
+//       ],
+//       label: "Select a country",
+//       hint: "Select a country",
+//       onChanged: (value) {
+//         setState(() {
+//           selectedFlag = value!;
+//         });
+//       },
+//       selectedItem: selectedFlag,
+//     );
+//   }
+// }
