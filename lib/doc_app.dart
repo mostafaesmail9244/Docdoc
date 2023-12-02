@@ -14,10 +14,10 @@ class DocApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(  
+        theme: ThemeData(
             primaryColor: ColorManager.mainBlue,
             scaffoldBackgroundColor: Colors.white),
-          initialRoute: Routes.homeScreen, 
+        initialRoute: Routes.loginScreen,
         onGenerateRoute: appRouter.generatRoute,
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mide_mate/core/helper/extentions.dart';
-import 'package:mide_mate/core/routing/routes.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+
+import 'package:mide_mate/core/theming/text_stylels.dart';
 
 class RowOfForgotPassword extends StatefulWidget {
   const RowOfForgotPassword({super.key});
@@ -33,15 +32,7 @@ class _RowOfForgotPasswordState extends State<RowOfForgotPassword> {
           style: TextStyles.font16Grey,
         ),
         const Spacer(),
-        TextButton(
-          onPressed: () {
-            context.pushNamed(Routes.forgotPasswordScreen);
-          },
-          child: Text(
-            'Forgot Password?',
-            style: TextStyles.font16Grey.copyWith(color: Colors.blue),
-          ),
-        )
+       
       ],
     );
   }

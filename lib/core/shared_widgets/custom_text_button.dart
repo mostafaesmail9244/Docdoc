@@ -1,21 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mide_mate/core/theming/colors_manager.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key, required this.child, required this.onTap});
-  final void Function()? onTap;
-  final Widget child;
+  final double? borderRadius;
+  final Color? backgroundColor;
+  final double? horizontalPadding;
+  final double? verticalPadding;
+  final double? buttonWidth;
+  final double? buttonHeight;
+  final String buttonText;
+  final TextStyle textStyle;
+  final VoidCallback onPressed;
+  const CustomTextButton({
+    super.key,
+    this.borderRadius,
+    this.backgroundColor,
+    this.horizontalPadding,
+    this.verticalPadding,
+    this.buttonHeight,
+    this.buttonWidth,
+    required this.buttonText,
+    required this.textStyle,
+    required this.onPressed,
+  });
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        style: ButtonStyle(
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16))),
-            minimumSize:
-                const MaterialStatePropertyAll(Size(double.infinity, 55)),
-            backgroundColor:
-                const MaterialStatePropertyAll(ColorManager.mainBlue)),
-        onPressed: onTap,
-        child: child);
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
+          ),
+        ),
+        backgroundColor: MaterialStatePropertyAll(
+          backgroundColor ?? ColorManager.mainBlue,
+        ),
+        padding: MaterialStateProperty.all<EdgeInsets>(
+          EdgeInsets.symmetric(
+            horizontal: horizontalPadding?.w ?? 12.w,
+            vertical: verticalPadding?.h ?? 14.h,
+          ),
+        ),
+        fixedSize: MaterialStateProperty.all(
+          Size(buttonWidth?.w ?? double.maxFinite, buttonHeight ?? 50.h),
+        ),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        buttonText,
+        style: textStyle,
+      ),
+    );
   }
 }

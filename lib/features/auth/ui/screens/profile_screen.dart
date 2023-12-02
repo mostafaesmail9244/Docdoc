@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_button.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_form_field.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
@@ -42,48 +42,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   //TODO: add profile image from assets
                   SizedBox(height: 30.h),
-                  customTextFormField(
+                  CustomTextFormField(
                       controller: emailController,
-                      tap: () {},
-                      validate: (value) {
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
-                      type: TextInputType.emailAddress,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Full Name'),
+                      inputType: TextInputType.emailAddress,
+                      hintText: 'Full Name'),
                   SizedBox(height: 20.h),
 
-                  customTextFormField(
-                      validate: (value) {
+                  CustomTextFormField(
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
                       controller: passController,
-                      tap: () {},
-                      type: TextInputType.emailAddress,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Email'),
+                      inputType: TextInputType.emailAddress,
+                      hintText: 'Email'),
                   SizedBox(height: 20.h),
-                  customTextFormField(
-                      validate: (value) {
+                  CustomTextFormField(
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
                       controller: passController,
-                      tap: () {},
-                      type: TextInputType.emailAddress,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Birthday'),
+                      inputType: TextInputType.emailAddress,
+                      hintText: 'Birthday'),
                   SizedBox(height: 20.h),
 
                   //TODO: add phone number
@@ -103,12 +94,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   //     label: 'Your number'),
                   SizedBox(height: 20.h),
                   CustomTextButton(
-                      child: Text(
-                        'Submit',
-                        style: TextStyles.font24Black700
-                            .copyWith(color: Colors.white, fontSize: 17.sp),
-                      ),
-                      onTap: () {
+                      buttonText: 'Submit',
+                      textStyle: TextStyles.font24Black700
+                          .copyWith(color: Colors.white, fontSize: 17.sp),
+                      onPressed: () {
                         if (_formKey.currentState!.validate()) {}
                       }),
                   SizedBox(height: 20.h),

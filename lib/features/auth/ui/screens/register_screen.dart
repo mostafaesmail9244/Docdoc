@@ -1,13 +1,12 @@
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mide_mate/core/helper/extentions.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_form_field.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_button.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 import 'package:mide_mate/features/auth/ui/widgets/my_divider.dart';
 import 'package:mide_mate/features/auth/ui/widgets/phone_field.dart';
 import 'package:mide_mate/features/auth/ui/widgets/singin_by_apps.dart';
+import 'package:mide_mate/features/auth/ui/widgets/terms_and_conditions_text_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({
@@ -58,39 +57,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     style: TextStyles.font16Grey,
                   ),
                   SizedBox(height: 30.h),
-                  customTextFormField(
+                  CustomTextFormField(
                       controller: emailController,
-                      tap: () {},
-                      validate: (value) {
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
-                      type: TextInputType.emailAddress,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Email'),
+                      inputType: TextInputType.emailAddress,
+                      hintText: 'Email'),
                   SizedBox(height: 20.h),
 
-                  customTextFormField(
-                      validate: (value) {
+                  CustomTextFormField(
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
                       controller: passController,
-                      tap: () {},
-                      type: TextInputType.emailAddress,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Password'),
+                      inputType: TextInputType.emailAddress,
+                      hintText: 'Password'),
                   SizedBox(height: 20.h),
 
                   //TODO: add phone number
 
-                 PhoneNumberCountryCode(),
+                  PhoneNumberCountryCode(),
                   // customTextFormField(
                   //     validate: (value) {
                   //       if (value.isEmpty) {
@@ -106,20 +99,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   //     label: 'Your number'),
                   SizedBox(height: 20.h),
                   CustomTextButton(
-                      child: Text(
-                        'Create Account',
-                        style: TextStyles.font24Black700
-                            .copyWith(color: Colors.white, fontSize: 17.sp),
-                      ),
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {}
-                      }),
+                    buttonText: 'Create Account',
+                    textStyle: TextStyles.font24Black700
+                        .copyWith(color: Colors.white, fontSize: 17.sp),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        debugPrint('prrrrrrrrrress');
+                      }
+                    },
+                  ),
+
                   SizedBox(height: 20.h),
                   const SignDivider(),
                   SizedBox(height: 20.h),
 
                   const SignInByApps(),
-                  const TermsAndConditionsButton()
+                  const TermsAndConditionsText()
                 ],
               ),
             ),
@@ -130,62 +125,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 }
 
-class TermsAndConditionsButton extends StatelessWidget {
-  const TermsAndConditionsButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'By logging, you agree to our ',
-              style: TextStyles.font16Grey.copyWith(fontSize: 12.sp),
-            ),
-            TextButton(
-              style: TextButton.styleFrom(padding: EdgeInsets.zero),
-              onPressed: () {},
-              child: Text(
-                'Terms & Conditions',
-                style: TextStyles.font24Black700.copyWith(fontSize: 12.sp),
-              ),
-            ),
-            Text(' and', style: TextStyles.font16Grey),
-          ],
-        ),
-        TextButton(
-            style: TextButton.styleFrom(
-              padding: EdgeInsets.zero,
-            ),
-            onPressed: () {},
-            child: Text(
-              'Privacy Policy',
-              style: TextStyles.font24Black700.copyWith(fontSize: 12.sp),
-            )),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Already have an account?',
-              style: TextStyles.font16Grey.copyWith(color: Colors.black),
-            ),
-            TextButton(
-              onPressed: () {
-                context.pop();
-              },
-              child: Text(
-                'Sing in',
-                style: TextStyles.font16Grey.copyWith(color: Colors.blue),
-              ),
-            )
-          ],
-        )
-      ],
-    );
-  }
-}
 
 // class FlagDropdown extends StatefulWidget {
 //   @override

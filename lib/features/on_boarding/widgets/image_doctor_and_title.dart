@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mide_mate/core/helper/extentions.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 
 class ImageDoctorAndTitle extends StatelessWidget {
   const ImageDoctorAndTitle({super.key});

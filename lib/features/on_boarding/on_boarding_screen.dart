@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mide_mate/core/helper/extentions.dart';
+import 'package:mide_mate/core/routing/routes.dart';
 import 'package:mide_mate/core/theming/colors_manager.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 import 'package:mide_mate/features/on_boarding/widgets/image_doctor_and_title.dart';
 import 'package:mide_mate/features/on_boarding/widgets/logo_and_app_name.dart';
 
@@ -56,7 +58,9 @@ class GetStartedButton extends StatelessWidget {
               const MaterialStatePropertyAll(Size(double.infinity, 55)),
           backgroundColor:
               const MaterialStatePropertyAll(ColorManager.mainBlue)),
-      onPressed: () {},
+      onPressed: () {
+        context.pushReplacmentNamed(Routes.loginScreen);
+      },
       child: Text(
         'Get Started',
         style: TextStyles.font24Black700.copyWith(color: Colors.white),

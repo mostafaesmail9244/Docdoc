@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mide_mate/core/helper/extentions.dart';
 import 'package:mide_mate/core/shared_widgets/my_divider.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 
 class SignDivider extends StatelessWidget {
   const SignDivider({super.key});

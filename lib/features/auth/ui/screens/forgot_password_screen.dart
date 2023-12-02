@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mide_mate/core/helper/extentions.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_button.dart';
 import 'package:mide_mate/core/shared_widgets/custom_text_form_field.dart';
-import 'package:mide_mate/core/theming/stylels_text.dart';
+import 'package:mide_mate/core/theming/text_stylels.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -38,26 +38,22 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     style: TextStyles.font16Grey,
                   ),
                   SizedBox(height: 30.h),
-                  customTextFormField(
+                  CustomTextFormField(
                       controller: controller,
-                      type: TextInputType.emailAddress,
-                      validate: (value) {
+                      inputType: TextInputType.emailAddress,
+                      validator: (value) {
                         if (value.isEmpty) {
                           return 'this field is required';
                         }
                         return null;
                       },
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      label: 'Email or Phone Number'),
-                  SizedBox(height: context.deviceHeight*.60),
+                      hintText: 'Email or Phone Number'),
+                  SizedBox(height: context.deviceHeight * .60),
                   CustomTextButton(
-                      child: Text(
-                        'Reset Password',
-                        style: TextStyles.font24Black700
-                            .copyWith(color: Colors.white, fontSize: 17.sp),
-                      ),
-                      onTap: () {
+                      buttonText: 'Reset Password',
+                      textStyle: TextStyles.font24Black700
+                          .copyWith(color: Colors.white, fontSize: 17.sp),
+                      onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           debugPrint('prrrrrrrrrress');
                         }
