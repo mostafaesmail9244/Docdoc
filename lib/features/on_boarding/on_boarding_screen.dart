@@ -39,7 +39,7 @@ class OnBoardingScreen extends StatelessWidget {
           ],
         ),
       ),
-    )));
+    ),),);
   }
 }
 
@@ -57,7 +57,7 @@ class GetStartedButton extends StatelessWidget {
           minimumSize:
               const MaterialStatePropertyAll(Size(double.infinity, 55)),
           backgroundColor:
-              const MaterialStatePropertyAll(ColorManager.mainBlue)),
+              const MaterialStatePropertyAll(ColorsManager.mainBlue)),
       onPressed: () {
         context.pushReplacmentNamed(Routes.loginScreen);
       },

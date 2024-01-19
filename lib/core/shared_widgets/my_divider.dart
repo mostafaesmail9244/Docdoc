@@ -9,7 +9,7 @@ class MyDivider extends StatelessWidget {
     return Container(
       height: 1,
       width: width,
-      color: ColorManager.grey,
+      color: ColorsManager.grey,
     );
   }
 }

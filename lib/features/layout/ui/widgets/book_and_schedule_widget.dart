@@ -22,7 +22,7 @@ class BookAndScheduleWidget extends StatelessWidget {
           padding: EdgeInsets.all(18.r),
           margin: EdgeInsets.only(top: 50.h),
           decoration: BoxDecoration(
-              color: ColorManager.mainBlue,
+              color: ColorsManager.mainBlue,
               borderRadius: BorderRadius.circular(24)),
           child: Row(
             children: [

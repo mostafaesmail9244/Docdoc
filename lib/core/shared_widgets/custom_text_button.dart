@@ -27,6 +27,7 @@ class CustomTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
@@ -34,12 +35,12 @@ class CustomTextButton extends StatelessWidget {
           ),
         ),
         backgroundColor: MaterialStatePropertyAll(
-          backgroundColor ?? ColorManager.mainBlue,
+          backgroundColor ?? ColorsManager.mainBlue,
         ),
         padding: MaterialStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
             horizontal: horizontalPadding?.w ?? 12.w,
-            vertical: verticalPadding?.h ?? 14.h,
+            vertical: verticalPadding?.h ?? 10.h,
           ),
         ),
         fixedSize: MaterialStateProperty.all(

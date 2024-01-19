@@ -42,8 +42,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       controller: controller,
                       inputType: TextInputType.emailAddress,
                       validator: (value) {
-                        if (value.isEmpty) {
-                          return 'this field is required';
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter a valid email';
                         }
                         return null;
                       },

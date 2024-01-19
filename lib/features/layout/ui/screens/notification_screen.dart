@@ -25,7 +25,7 @@ class NotificationScreen extends StatelessWidget {
             child: TextButton(
               onPressed: () {},
               style: TextButton.styleFrom(
-                backgroundColor: ColorManager.mainBlue,
+                backgroundColor: ColorsManager.mainBlue,
               ),
               child: Text(
                 'New',
