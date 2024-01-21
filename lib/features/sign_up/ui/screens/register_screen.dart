@@ -48,7 +48,6 @@ class RegisterScreen extends StatelessWidget {
                   const TermsAndConditionsText(),
                   SizedBox(height: 20.h),
                   const SingUpBlocListener(),
-                  // AlreadyHaveAccountText()
                 ],
               ),
             ),

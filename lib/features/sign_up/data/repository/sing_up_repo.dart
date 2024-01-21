@@ -10,8 +10,8 @@ class SignUpRepo {
   SignUpRepo(ApiService apiService) : _apiService = apiService;
   Future<ApiResult<RegisterResponse>> singUp(
       RegisterRequest registerRequest) async {
-    var data = await _apiService.register(registerRequest);
     try {
+      var data = await _apiService.register(registerRequest);
       return ApiResult.success(data);
     } on Exception catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));

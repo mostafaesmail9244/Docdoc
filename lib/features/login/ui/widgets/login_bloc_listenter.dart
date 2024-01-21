@@ -32,7 +32,6 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           error: (error) {
-            context.pop();
             setupErrorState(context, error);
           },
         );
@@ -42,6 +41,7 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void setupErrorState(BuildContext context, String error) {
+    context.pop();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -59,7 +59,7 @@ class LoginBlocListener extends StatelessWidget {
                 context.pop();
               },
               child: Text(
-                'Got id',
+                'Got it',
                 style: TextStyles.font14BlueSemiBold,
               ))
         ],

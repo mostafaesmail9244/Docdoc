@@ -17,15 +17,14 @@ class SignUpCubit extends Cubit<SignUpState> {
   var formKey = GlobalKey<FormState>();
   final SignUpRepo _signUpRepo;
   void emitSingUpState() async {
-    RegisterRequest registerRequest = RegisterRequest(
+    emit(const SignUpState.loading());
+    var data = await _signUpRepo.singUp(RegisterRequest(
         name: nameController.text,
         email: emailController.text,
         phone: phoneController.text,
         gender: '0',
         password: passController.text,
-        passwordConfirmation: passConfirmationController.text);
-    var data = await _signUpRepo.singUp(registerRequest);
-    emit(const SignUpState.loading());
+        passwordConfirmation: passConfirmationController.text));
     data.when(success: ((registerResponse) {
       emit(SignUpState.success(registerResponse));
     }), failure: ((error) {
