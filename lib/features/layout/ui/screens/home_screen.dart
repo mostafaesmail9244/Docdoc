@@ -21,9 +21,13 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               context.pushNamed(Routes.notificationScreen);
             },
-            icon: Icon(
-              Icons.notifications_none_outlined,
-              size: 25.r,
+            icon: CircleAvatar(
+              radius: 25,
+              backgroundColor: const Color(0xffF4F8FF),
+              child: Icon(
+                Icons.notifications_none_outlined,
+                size: 25.r,
+              ),
             ),
           )
         ],
@@ -49,7 +53,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               const BookAndScheduleWidget(),
               SizedBox(height: 24.h),
-              //Doctor Speciality
+              // Doctor Speciality Section
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -66,22 +70,31 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              //TODO; add doctor Speciality
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                //TODO: add icon button
-                IconButton(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  DoctorSpecialityButton(
+                    image: 'assets/images/general_icon.png',
+                    title: 'General',
                     onPressed: () {},
-                    icon: const Icon(Icons.radio_button_off_outlined)),
-                IconButton(
+                  ),
+                  DoctorSpecialityButton(
+                    image: 'assets/images/brain_icon.png',
+                    title: 'Neurologic',
                     onPressed: () {},
-                    icon: const Icon(Icons.radio_button_off_outlined)),
-                IconButton(
+                  ),
+                  DoctorSpecialityButton(
+                    image: 'assets/images/child_icon.png',
+                    title: 'Pediatric',
                     onPressed: () {},
-                    icon: const Icon(Icons.radio_button_off_outlined)),
-                IconButton(
+                  ),
+                  DoctorSpecialityButton(
+                    image: 'assets/images/radiology_icon.png',
+                    title: 'Radiology',
                     onPressed: () {},
-                    icon: const Icon(Icons.radio_button_off_outlined)),
-              ]),
+                  ),
+                ],
+              ),
 
               SizedBox(height: 24.h),
               // recommendation doctor
@@ -109,11 +122,11 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: ListView.separated(
                   separatorBuilder: (context, int index) =>
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 15.h),
                   shrinkWrap: true,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, int index) => const DoctorInfo(),
-                  itemCount: 10,
+                  itemCount: 6,
                 ),
               )
             ],
@@ -136,8 +149,8 @@ class DoctorInfo extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/doctor_image2.png',
-          height: context.deviceHeight * .10,
-          width: context.deviceWidth * .20,
+          height: context.deviceHeight * .15,
+          width: context.deviceWidth * .30,
         ),
         const SizedBox(width: 16),
         Column(
@@ -145,7 +158,7 @@ class DoctorInfo extends StatelessWidget {
           children: [
             Text(
               'Dr. Randy Wigham',
-              style: TextStyles.font18Black,
+              style: TextStyles.font16BlackBold,
             ),
             //doctor information
             Row(
@@ -183,3 +196,35 @@ class DoctorInfo extends StatelessWidget {
     );
   }
 }
+
+class DoctorSpecialityButton extends StatelessWidget {
+  const DoctorSpecialityButton({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.onPressed,
+  });
+  final String image;
+  final String title;
+  final void Function()? onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        IconButton(
+          icon: CircleAvatar(
+            backgroundColor: const Color(0xffF4F8FF),
+            radius: 25.r,
+            child: Image.asset(
+              image,
+            ),
+          ),
+          onPressed: onPressed,
+        ),
+        Text(title, style: TextStyles.font13DarkBlueMedium),
+      ],
+    );
+  }
+}
+
+//test20@test.com  Omar@123
